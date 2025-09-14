@@ -46,12 +46,10 @@
       color: var(--text);
       border-radius: 16px;
       display:flex;
-      flex-direction:column;
       align-items:center;
       justify-content:center;
       text-align:center;
     }
-    .welcome-screen{cursor:pointer;font-weight:700;font-size:28px}
 
     h2{margin:0 0 16px 0;font-size:24px}
     p{margin:8px 0 0 0;font-size:18px;color:var(--muted)}
@@ -134,12 +132,24 @@
 
     .final h2{ font-size:32px; margin-bottom:12px }
     .final p{ font-size:20px; line-height:1.4 }
+
+    .welcome-title{font-size:48px;font-weight:800}
+    .welcome-instr{font-size:22px;color:var(--muted);margin:10px 0}
+    .welcome-tap{font-size:20px;font-weight:600;margin-top:15px}
   </style>
 </head>
 <body>
   <div class="vending-container">
     <div class="welcome-screen" id="welcome" onclick="startMachine()">
-      Welcome<br/>Tap to Continue
+      <div class="split">
+        <div class="split-left">
+          <div class="welcome-title">ONELESS</div>
+        </div>
+        <div class="split-right">
+          <div class="welcome-instr">Put your bottle on the refill area</div>
+          <div class="welcome-tap">Tap to continue</div>
+        </div>
+      </div>
     </div>
     <div class="screen" id="screen" style="display:none;"></div>
   </div>
@@ -306,3 +316,4 @@
   </script>
 </body>
 </html>
+
