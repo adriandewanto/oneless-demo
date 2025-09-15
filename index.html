@@ -49,6 +49,66 @@
       justify-content:center;
       text-align:center;
     }
+    /* --- Welcome screen override --- */
+    .welcome-screen{
+      background: var(--green); /* green background */
+      color:#fff; /* white text */
+    }
+    .split{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      width:100%;
+      height:100%;
+      gap:30px;
+      padding: 20px;
+    }
+    .split-left,.split-right{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+    }
+    /* Circle logo */
+    .welcome-logo {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .circle-logo {
+      background:#fff; /* white circle */
+      border-radius:50%;
+      width:216px;
+      height:216px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
+    .circle-text {
+      font-weight:800;
+      font-size:50px;
+      line-height:1.05; /* tighter vertical spacing */
+    }
+    .circle-text.one { color: var(--green); }
+    .circle-text.less { color:#000; margin-top:-6px; } /* fine-tuned gap */
+
+    .welcome-instr{
+      font-size:22px;
+      color:#fff;  /* white */
+      font-weight:700; /* bold */
+      margin:10px 0;
+    }
+    .welcome-tap{
+      font-size:20px;
+      font-weight:700; /* bold */
+      margin-top:15px;
+      color:#fff; /* white */
+    }
+
+    /* --- Other journey (unchanged) --- */
     h2{margin:0 0 16px 0;font-size:24px}
     p{margin:8px 0 0 0;font-size:18px;color:var(--muted)}
     .btn, .keypad button{
@@ -92,23 +152,6 @@
       color:var(--muted);
       margin-top:4px;
     }
-    .split{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      width:100%;
-      height:100%;
-      gap:30px;
-      padding: 20px;
-    }
-    .split-left,.split-right{
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-    }
     .keypad{
       display:grid;
       grid-template-columns: repeat(3, 90px);
@@ -133,20 +176,22 @@
     .progress-label{ margin-top:8px; font-weight:700; color:var(--muted) }
     .final h2{ font-size:32px; margin-bottom:12px }
     .final p{ font-size:20px; line-height:1.4 }
-    .welcome-title{font-size:56px;font-weight:800}
-    .welcome-title .one{color:var(--green)}
-    .welcome-title .less{color:#000}
-    .welcome-instr{font-size:22px;color:var(--muted);margin:10px 0}
-    .welcome-tap{font-size:20px;font-weight:600;margin-top:15px}
   </style>
 </head>
 <body>
   <div class="vending-container">
     <div class="welcome-screen" id="welcome" onclick="startMachine()">
       <div class="split">
+        <!-- Left: circle logo -->
         <div class="split-left">
-          <div class="welcome-title"><span class="one">ONE</span><span class="less">LESS</span></div>
+          <div class="welcome-logo">
+            <div class="circle-logo">
+              <div class="circle-text one">ONE</div>
+              <div class="circle-text less">LESS</div>
+            </div>
+          </div>
         </div>
+        <!-- Right: instruction text -->
         <div class="split-right">
           <div class="welcome-instr">Put your bottle on the refill area</div>
           <div class="welcome-tap">Tap to continue</div>
