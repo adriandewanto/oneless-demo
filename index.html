@@ -51,8 +51,8 @@
     }
     /* --- Welcome screen override --- */
     .welcome-screen{
-      background: var(--green); /* green background */
-      color:#fff; /* white text */
+      background: var(--green);
+      color:#fff;
     }
     .split{
       display:flex;
@@ -78,7 +78,7 @@
       justify-content:center;
     }
     .circle-logo {
-      background:#fff; /* white circle */
+      background:#fff;
       border-radius:50%;
       width:216px;
       height:216px;
@@ -90,25 +90,29 @@
     .circle-text {
       font-weight:800;
       font-size:50px;
-      line-height:1.05; /* tighter vertical spacing */
+      line-height:1.05;
     }
     .circle-text.one { color: var(--green); }
-    .circle-text.less { color:#000; margin-top:-6px; } /* fine-tuned gap */
+    .circle-text.less { color:#000; margin-top:-6px; }
 
+    /* Welcome screen texts bigger + single line */
     .welcome-instr{
-      font-size:22px;
-      color:#fff;  /* white */
-      font-weight:700; /* bold */
+      font-size:26px;
+      color:#fff;
+      font-weight:700;
       margin:10px 0;
+      white-space:nowrap; /* force single line */
+      transform:translateX(-20px); /* slight shift left */
     }
     .welcome-tap{
-      font-size:20px;
-      font-weight:700; /* bold */
+      font-size:24px;
+      font-weight:700;
       margin-top:15px;
-      color:#fff; /* white */
+      color:#fff;
+      transform:translateX(-20px); /* keep aligned */
     }
 
-    /* --- Other journey (unchanged) --- */
+    /* --- Other journey --- */
     h2{margin:0 0 16px 0;font-size:24px}
     p{margin:8px 0 0 0;font-size:18px;color:var(--muted)}
     .btn, .keypad button{
@@ -130,22 +134,44 @@
       align-items:center;
       flex:1;
     }
+
+    /* Select Product bigger + gap */
+    .product-screen h2{
+      font-size:29px;
+    }
     .product-buttons{
       display:flex;
-      gap:20px;
+      gap:30px; /* add gap between buttons */
       margin-top:20px;
     }
-    .product-buttons button,
-    .payment-buttons button{
-      width: 180px;
-      height: 70px;
-      font-size:22px;
+    .product-buttons button{
+      width: 216px;
+      height: 84px;
+      font-size:26px;
       border-radius:14px;
     }
+
+    .payment-buttons button{
+      width: 280px;
+      height: 84px;
+      font-size:26px;
+      border-radius:14px;
+      white-space:nowrap;
+    }
+    .payment-buttons h2{
+      font-size:29px;
+    }
+
     .amount-display{
       font-size:48px;
       font-weight:800;
       margin-top:10px;
+    }
+    .price-display{
+      font-size:40px;
+      font-weight:800;
+      color:var(--green);
+      margin-top:12px;
     }
     .price-hint{
       font-size:18px;
@@ -158,10 +184,38 @@
       gap:12px;
     }
     .keypad button{ height:60px; font-size:20px; font-weight:700 }
+
+    /* Price Summary bigger */
+    .price-summary h2{
+      font-size:29px; /* was 24px */
+    }
+    .price-summary p{
+      font-size:22px; /* was 18px */
+    }
+    .price-summary button{
+      width: 216px;
+      height: 84px;
+      font-size:26px;
+    }
+
+    /* Confirm Order bigger */
+    .confirm-order h2{
+      font-size:29px;
+    }
+    .confirm-order p{
+      font-size:22px;
+    }
+    .confirm-order button{
+      width: 216px;
+      height: 84px;
+      font-size:26px;
+    }
+
+    /* Refilling bar 1.2x thicker */
     .progress{
       width: 80%;
       max-width: 520px;
-      height: 18px;
+      height: 22px; /* was 18px */
       background: #e9ecef;
       border-radius: 999px;
       overflow:hidden;
@@ -174,8 +228,15 @@
       transition: width .2s ease;
     }
     .progress-label{ margin-top:8px; font-weight:700; color:var(--muted) }
+
     .final h2{ font-size:32px; margin-bottom:12px }
     .final p{ font-size:20px; line-height:1.4 }
+
+    /* Back to Main Menu button bigger */
+    .final .btn{
+      font-size:22px;
+      padding: 16px 32px;
+    }
   </style>
 </head>
 <body>
@@ -239,6 +300,7 @@
             '<h2>Enter Amount (L)</h2>' +
             '<div class="price-hint">Price: NZ$5 per litre</div>' +
             '<div class="amount-display" id="amount">0</div>' +
+            '<div class="price-display" id="price">NZ$ 0</div>' +
           '</div>' +
           '<div class="split-right">' +
             '<div class="keypad">' +
@@ -263,12 +325,20 @@
       if(inputAmount.length < 3){
         inputAmount += n;
         document.getElementById('amount').textContent = inputAmount;
+        updatePrice();
       }
     }
 
     function deleteNumber(){
       inputAmount = inputAmount.slice(0,-1);
       document.getElementById('amount').textContent = inputAmount || "0";
+      updatePrice();
+    }
+
+    function updatePrice(){
+      const litres = parseInt(inputAmount, 10) || 0;
+      const price = litres * 5;
+      document.getElementById('price').textContent = "NZ$ " + price;
     }
 
     function showPrice(){
@@ -276,7 +346,7 @@
       const price = (parseInt(inputAmount,10) || 0) * 5;
       const s=document.getElementById('screen');
       s.innerHTML =
-        '<div class="split">' +
+        '<div class="split price-summary">' +
           '<div class="split-left">' +
             '<h2>Price Summary</h2>' +
           '</div>' +
@@ -293,7 +363,7 @@
       s.innerHTML =
         '<div class="split">' +
           '<div class="split-left">' +
-            '<h2>Select Payment</h2>' +
+            '<h2 style="font-size:29px;">Select Payment</h2>' + /* 1.2x bigger heading */
           '</div>' +
           '<div class="split-right payment-buttons" style="gap:20px;">' +
             '<button class="btn" onclick="selectPayment(\'Debit/Credit Card\')">Debit/Credit Card</button>' +
@@ -311,7 +381,7 @@
       const price = (parseInt(inputAmount,10) || 0) * 5;
       const s=document.getElementById('screen');
       s.innerHTML =
-        '<div class="split">' +
+        '<div class="split confirm-order">' +
           '<div class="split-left">' +
             '<h2>Confirm Order</h2>' +
           '</div>' +
