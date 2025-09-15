@@ -73,132 +73,53 @@
       align-items:center;
       text-align:center;
     }
-    .welcome-logo {
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
+    .welcome-logo { display:flex; align-items:center; justify-content:center; }
     .circle-logo {
-      background:#fff;
-      border-radius:50%;
-      width:216px;
-      height:216px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
+      background:#fff; border-radius:50%; width:216px; height:216px;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
     }
-    .circle-text {
-      font-weight:800;
-      font-size:50px;
-      line-height:1.05;
-    }
+    .circle-text { font-weight:800; font-size:50px; line-height:1.05; }
     .circle-text.one { color: var(--green); }
     .circle-text.less { color:#000; margin-top:-6px; }
-    .welcome-instr{
-      font-size:26px;
-      color:#fff;
-      font-weight:700;
-      margin:10px 0;
-      white-space:nowrap;
-      transform:translateX(-20px);
-    }
-    .welcome-tap{
-      font-size:24px;
-      font-weight:700;
-      margin-top:15px;
-      color:#fff;
-      transform:translateX(-20px);
-    }
+    .welcome-instr{ font-size:26px; color:#fff; font-weight:700; margin:10px 0; white-space:nowrap; transform:translateX(-20px); }
+    .welcome-tap{ font-size:24px; font-weight:700; margin-top:15px; color:#fff; transform:translateX(-20px); }
 
     /* --- Other journey --- */
     h2{margin:0 0 16px 0;font-size:24px}
     p{margin:8px 0 0 0;font-size:18px;color:var(--muted)}
     .btn, .keypad button{
-      appearance:none;
-      border:0;
-      background: var(--green);
-      color:#fff;
-      font-weight:700;
-      border-radius:10px;
-      height: 52px;
-      font-size:18px;
-      cursor:pointer;
+      appearance:none; border:0; background: var(--green); color:#fff;
+      font-weight:700; border-radius:10px; height: 52px; font-size:18px; cursor:pointer;
     }
     .btn-secondary{ background:#18402d }
 
-    .product-screen{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      flex:1;
-    }
+    .product-screen{ display:flex; flex-direction:column; justify-content:center; align-items:center; flex:1; }
     .product-screen h2{ font-size:29px; }
-    .product-buttons{
-      display:flex;
-      gap:30px;
-      margin-top:20px;
-    }
-    .product-buttons button{
-      width: 216px;
-      height: 84px;
-      font-size:26px;
-      border-radius:14px;
-    }
+    .product-buttons{ display:flex; gap:30px; margin-top:20px; }
+    .product-buttons button{ width: 216px; height: 84px; font-size:26px; border-radius:14px; }
 
-    .payment-buttons button{
-      width: 280px;
-      height: 84px;
-      font-size:26px;
-      border-radius:14px;
-      white-space:nowrap;
-    }
+    .payment-buttons button{ width: 280px; height: 84px; font-size:26px; border-radius:14px; white-space:nowrap; }
 
-    .amount-display{
-      font-size:48px;
-      font-weight:800;
-      margin-top:10px;
-    }
-    .price-display{
-      font-size:40px;
-      font-weight:800;
-      color:var(--green);
-      margin-top:12px;
-    }
-    .price-hint{
-      font-size:18px;
-      color:var(--muted);
-      margin-top:4px;
-    }
-    .keypad{
-      display:grid;
-      grid-template-columns: repeat(3, 90px);
-      gap:12px;
-    }
+    .amount-display{ font-size:48px; font-weight:800; margin-top:10px; }
+    .price-display{ font-size:40px; font-weight:800; color:var(--green); margin-top:12px; }
+    .price-hint{ font-size:18px; color:var(--muted); margin-top:4px; }
+
+    .keypad{ display:grid; grid-template-columns: repeat(3, 90px); gap:12px; }
     .keypad button{ height:60px; font-size:20px; font-weight:700 }
 
     .price-summary h2{ font-size:29px; }
     .price-summary p{ font-size:22px; }
-    .price-summary button{
-      width: 216px;
-      height: 84px;
-      font-size:26px;
-    }
+    .price-summary button{ width: 216px; height: 84px; font-size:26px; }
 
     .confirm-order h2{ font-size:29px; }
     .confirm-order p{ font-size:22px; }
-    .confirm-order button{
-      width: 216px;
-      height: 84px;
-      font-size:26px;
-    }
+    .confirm-order button{ width: 216px; height: 84px; font-size:26px; }
 
     /* Striped animated progress bar */
     .progress{
       width: 80%;
       max-width: 520px;
-      height: 28px;
+      height: 28px; /* thickness of bar */
       background: #e9ecef;
       border-radius: 999px;
       overflow:hidden;
@@ -239,19 +160,9 @@
       opacity:0;
       animation: fadeIn 1s forwards;
     }
-    .final h2{
-      font-size:48px;
-      margin-bottom:20px;
-    }
-    .final p{
-      font-size:28px;
-      line-height:1.5;
-      color:#fff;
-    }
-    @keyframes fadeIn {
-      from { opacity:0; }
-      to { opacity:1; }
-    }
+    .final h2{ font-size:48px; margin-bottom:20px; }
+    .final p{ font-size:28px; line-height:1.5; color:#fff; }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
   </style>
 </head>
 <body>
@@ -275,7 +186,7 @@
     <div class="screen" id="screen" style="display:none;"></div>
   </div>
 
-  <!-- Load sounds -->
+  <!-- Sounds in repo root -->
   <audio id="clickSound" src="click.wav" preload="auto"></audio>
   <audio id="refillSound" src="refill.wav" preload="auto"></audio>
 
@@ -287,20 +198,22 @@
     const clickSound = document.getElementById('clickSound');
     const refillSound = document.getElementById('refillSound');
 
-    function playClick(){ clickSound.currentTime = 0; clickSound.play(); }
-    function playRefill(){ refillSound.currentTime = 0; refillSound.play(); }
+    function playClick(){ try{ clickSound.currentTime = 0; clickSound.play(); }catch(e){} }
+    function playRefill(){ try{ refillSound.currentTime = 0; refillSound.play(); }catch(e){} }
 
     function startMachine(){
       document.getElementById('welcome').style.display='none';
       const s=document.getElementById('screen');
       s.style.display='flex';
-      s.classList.remove('final'); 
+      s.classList.remove('final');
+      s.innerHTML = ""; // ensure fresh
       resetMachine();
     }
 
     function resetMachine(){
       inputAmount=""; productType=""; paymentMethod="";
       const s=document.getElementById('screen');
+      s.onclick = null; // remove any leftover click handlers
       s.innerHTML =
         '<div class="product-screen">' +
           '<h2>Select Product</h2>' +
@@ -412,8 +325,8 @@
         '</div>';
     }
 
+    // progress synced to refill audio duration
     function startRefill(){
-      playRefill();
       const s=document.getElementById('screen');
       s.innerHTML =
         '<div style="display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;">' +
@@ -423,20 +336,63 @@
           '<p style="margin-top:12px;">Hold your bottle steady.</p>' +
         '</div>';
 
-      let pct = 0;
       const bar = document.getElementById('bar');
       const label = document.getElementById('pct');
 
-      const t = setInterval(()=>{
-        pct += 5;
-        if(pct > 100) pct = 100;
-        bar.style.width = pct + "%";
-        label.textContent = pct + "%";
-        if(pct === 100){
-          clearInterval(t);
-          setTimeout(showThankYou, 1000); // 1s delay
+      // clear any prior listeners to avoid stacking across runs
+      refillSound.onended = null;
+      refillSound.onplay = null;
+
+      let rafId = null;
+      function tick(){
+        const dur = refillSound.duration;
+        const ct  = refillSound.currentTime;
+        if (isFinite(dur) && dur > 0){
+          const pct = Math.min(100, (ct / dur) * 100);
+          bar.style.width = pct + "%";
+          label.textContent = Math.round(pct) + "%";
         }
-      }, 150);
+        if (!refillSound.ended && !refillSound.paused){
+          rafId = requestAnimationFrame(tick);
+        }
+      }
+
+      // When playback starts, begin syncing progress
+      refillSound.onplay = () => {
+        cancelAnimationFrame(rafId);
+        tick();
+      };
+
+      // Ensure we start from 0 and play
+      try { refillSound.currentTime = 0; } catch(e){}
+      playRefill();
+
+      // When audio ends, snap to 100% and move on after 1s
+      refillSound.onended = () => {
+        cancelAnimationFrame(rafId);
+        bar.style.width = "100%";
+        label.textContent = "100%";
+        setTimeout(showThankYou, 1000);
+      };
+
+      // Fallback in case duration is unavailable: force a minimal visual
+      setTimeout(() => {
+        if (!isFinite(refillSound.duration) || refillSound.duration === 0){
+          // 4s fallback animation
+          let start = null;
+          function fallbackRAF(ts){
+            if(!start) start = ts;
+            const elapsed = ts - start;
+            const pct = Math.min(100, (elapsed / 4000) * 100);
+            bar.style.width = pct + "%";
+            label.textContent = Math.round(pct) + "%";
+            if (pct < 100 && !refillSound.ended){
+              requestAnimationFrame(fallbackRAF);
+            }
+          }
+          requestAnimationFrame(fallbackRAF);
+        }
+      }, 300);
     }
 
     function showThankYou(){
@@ -447,13 +403,15 @@
           '<h2>♻️ Nice work!</h2>' +
           '<p>You have just avoided <strong>1 plastic bottle</strong><br/>and about <strong>0.12 kg CO₂e</strong>.</p>' +
         '</div>';
-      // tap anywhere to return to welcome
+      // tap anywhere to return to welcome (clean reset)
       s.onclick = () => {
         s.style.display="none";
-        s.classList.remove('final'); 
+        s.classList.remove('final');
+        s.innerHTML = "";
         document.getElementById('welcome').style.display="flex";
       }
     }
   </script>
 </body>
 </html>
+
